@@ -1,7 +1,6 @@
 .vscode/
 env/
-secret/
-secret.py
+secrets/
 *.pyc
 .DS_Store
 .idea
