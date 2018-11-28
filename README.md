@@ -1,4 +1,4 @@
-# Code Newbie Rewind
+# Let's Open Source
 
 This is a fork of @aligg's [Code Newbie
 Tweets](https://github.com/aligg/Code-Newbie-Tweets). For more information about
@@ -7,9 +7,14 @@ the motivations behind this project, go to the original repo.
 This is a fork where I revert most changes and file more bugs so there's more
 stuff to do for this open source workshop at Hackbright Academy.
 
-Also it uses Reddit instead of Twitter.
+Also, I actually changed the whole scope of the project.
 
-Also it has some setup scripts.
+# The project: Pinbored
+
+Pinbored is a clone of [pinboard.in](https://pinboard.in/), the "anti-social
+bookmarking app".
+
+Also, it will integrate with Reddit. Because why not.
 
 ## How to contribute
 
@@ -30,7 +35,7 @@ Also it has some setup scripts.
 
 ### How to install
 
-#### Install project dependencies
+### Install project dependencies
 
 In a virtual environment, run
 
@@ -57,13 +62,7 @@ and remind you to populate `keys.py` with your Reddit API credentials.
 If you'd like to alter default behavior, set the following variables in your
 environment:
 
-`NEWBIE_TWEETS_DB_URI`
-  Override `DEFAULT_DB_URI` in `server.py`
-
-`NEWBIE_TWEETS_LISTEN_HOST`
-  Override `DEFAULT_LISTEN_HOST` in `server.py`
-
-`NEWBIE_TWEETS_LISTEN_PORT`
-  Override the `DEFAULT_LISTEN_PORT` in `server.py`
-
+- `FLASK_DB_URI`
+- `FLASK_LISTEN_HOST`
+- `FLASK_LISTEN_PORT`
 

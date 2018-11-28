@@ -1,15 +1,12 @@
-import json
-import time
-import re
-import oauth2 as oauth
 import os
+
 from flask import (Flask, jsonify, render_template)
 from sqlalchemy import desc
 
 from secrets import keys
 
 
-DEFAULT_DB_URI = "postgresql:///newb"
+DEFAULT_DB_URI = "postgresql:///pinbored"
 DEFAULT_LISTEN_HOST = "127.0.0.1"
 DEFAULT_LISTEN_PORT = "5000"
 
@@ -33,10 +30,9 @@ LISTEN_PORT = int(os.environ.get(
 
 @app.route("/")
 def index():
-    """Index.
+    """Index."""
 
-    TODO: Make the home page do something more interesting
-    """
+    # TODO: Make the homepage more sensible
 
     return render_template("home.html")
 
@@ -48,12 +44,20 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/api/posts/<subreddit>/<sort_mode>")
-def get_posts(subreddit, sort_mode):
-    """Get posts from the given subreddit, using the given sort_mode.
+@app.route("/api/pins")
+def get_pins():
+    """Get all pins."""
 
-    TODO: This ain't done yet
-    """
+    # TODO: Finish this
+
+    return render_template("todo.html")
+
+
+@app.route("/api/pin", methods=["POST"])
+def create_pin():
+    """Create a pin."""
+
+    # TODO: Finish this
 
     return render_template("todo.html")
 
