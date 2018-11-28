@@ -1,27 +1,69 @@
-# Code Newbie
+# Code Newbie Rewind
 
-I created this project to practice pulling data from an API, storing that data in a database, displaying the data in a pretty way, and creating a new API endpoint using the data. Through the project I also hope to provide a forum for others who want to learn about these topics or contribute to an open-source project for the first time. 
+This is a fork of @aligg's [Code Newbie
+Tweets](https://github.com/aligg/Code-Newbie-Tweets). For more information about
+the motivations behind this project, go to the original repo.
 
-### Getting Started ###
-* `pip install -r requirements.txt` to make sure you have everything you need to run the program. Doing so in a virtual environment is recommended!
+This is a fork where I revert most changes and file more bugs so there's more
+stuff to do for this open source workshop at Hackbright Academy.
 
-* Create a directory called `secret` with an empty `__init__.py` file inside. Make a `keys.py` file in the `secret` directory (based on the `secretkeys_template.py`) and populate it with your Twitter API credentials.
+Also it uses Reddit instead of Twitter.
 
-* **If** you want to alter the default behavior, you can export any of the following environment variables:
+Also it has some setup scripts.
 
-  * `NEWBIE_TWEETS_DB_URI` to override the DEFAULT_DB_URI specified in `server.py`
+## How to contribute
 
-  * `NEWBIE_TWEETS_LISTEN_HOST` to override the DEFAULT_LISTEN_HOST specified in `server.py`
+- Follow the instructions in [Installing for
+  development](#Installing-for-development)
+- Find an issue (or open a new one)
+- Read the wiki
+- ???
+- Profit
 
-  * `NEWBIE_TWEETS_LISTEN_PORT` to override the DEFAULT_LISTEN_PORT specified in `server.py`
+## Installing for development
+
+### Dependencies
+
+- Python 3
+- PostgreSQL
+- A Reddit API key
+
+### How to install
+
+#### Install project dependencies
+
+In a virtual environment, run
+
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+#### Run setup script
+
+```
+python setup.py
+```
+
+This script will
+
+- Create a directory called `secret` with an empty `__init__.py` file inside
+- Make a `keys.py` file in the `secret` directory
+
+and remind you to populate `keys.py` with your Reddit API credentials.
+
+#### Configuration
+
+If you'd like to alter default behavior, set the following variables in your
+environment:
+
+`NEWBIE_TWEETS_DB_URI`
+  Override `DEFAULT_DB_URI` in `server.py`
+
+`NEWBIE_TWEETS_LISTEN_HOST`
+  Override `DEFAULT_LISTEN_HOST` in `server.py`
+
+`NEWBIE_TWEETS_LISTEN_PORT`
+  Override the `DEFAULT_LISTEN_PORT` in `server.py`
 
 
-* I still need to create a seed file for the database for others to get up and running with the project. Stay tuned! 
-
-
-### Contributing ###
-
-Please check out the existing issues or create a new issue and assign it to yourself. Fork this repository then submit a pull request to contribute to this project. Feel free to add your github handle to the friends page to be recognized as a project contributor :) 
-
-### Questions or Suggestions? ###
-Let me know [@aliglenesk](https://twitter.com/aliglenesk)
