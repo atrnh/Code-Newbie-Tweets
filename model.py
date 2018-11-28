@@ -1,22 +1,24 @@
 from flask_sqlalchemy import SQLAlchemy
+
+
 db = SQLAlchemy()
-from datetime import datetime
 
 
-class Tweet(db.Model):
-    """tweets taken in to db"""
+class Pin(db.Model):
+    """A pinned link."""
+
     __tablename__ = "tweets"
 
-    item_id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
-    handle = db.Column(db.String(25), nullable=True)
-    time_created = db.Column(db.DateTime, nullable=True, default=datetime.utcnow)
-    text = db.Column(db.String(300), nullable=True)
-    retweets = db.Column(db.Integer, nullable=True)
+    pin_id = db.Column(db.Integer,
+                       autoincrement=True,
+                       primary_key=True,
+                       nullable=False,
+                       )
+    url = db.Column(db.String(125), nullable=True)
+    desc = db.Column(db.Text(), nullable=True)
 
     def __repr__(self):
-        """prettify output"""
-
-        return "<Item item_id=%s handle=%s>" % (self.item_id, self.handle)
+        return "<Pin pin_id={}>".format(self.pin_id)
 
 
 def connect_to_db(app, db_uri):
@@ -33,5 +35,4 @@ if __name__ == "__main__":
 
     from server import app, DB_URI
     connect_to_db(app, DB_URI)
-    db.create_all()
     print("Connected to DB, Woohoo!")
