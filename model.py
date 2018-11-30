@@ -1,10 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
 
+from util.connect import connect_to_db
+from mixin.model_mixins import ApiModel
+
 
 db = SQLAlchemy()
 
 
-class Pin(db.Model):
+class Pin(ApiModel, db.Model):
     """A pinned link."""
 
     __tablename__ = "tweets"
@@ -14,25 +17,19 @@ class Pin(db.Model):
                        primary_key=True,
                        nullable=False,
                        )
-    url = db.Column(db.String(125), nullable=True)
+    url = db.Column(db.String(125))
     desc = db.Column(db.Text(), nullable=True)
 
     def __repr__(self):
-        return "<Pin pin_id={}>".format(self.pin_id)
+        return "<Pin pin_id={} url={}>".format(self.pin_id, self.url)
 
-
-def connect_to_db(app, db_uri):
-    """Connect the database to app"""
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-    app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    db.app = app
-    db.init_app(app)
+    def __init__(self, url, desc=None):
+        self.url = url
+        self.desc = desc
 
 
 if __name__ == "__main__":
+    from server import app
 
-    from server import app, DB_URI
-    connect_to_db(app, DB_URI)
-    print("Connected to DB, Woohoo!")
+    connect_to_db(app, db)
+    print("Connected to database")
