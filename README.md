@@ -7,7 +7,11 @@ the motivations behind this project, go to the original repo.
 This is a fork where I revert most changes and file more bugs so there's more
 stuff to do for this open source workshop at Hackbright Academy.
 
-Also, I actually changed the whole scope of the project.
+(Also, the scope of this project has been changed. Just because signing up for a
+Twitter API key is such a pain in the rear.)
+
+For more information, [read the
+wiki](https://github.com/atrnh/lets-open-source/wiki).
 
 # The project: Pinbored
 
@@ -57,12 +61,7 @@ This script will
 
 and remind you to populate `keys.py` with your Reddit API credentials.
 
-#### Configuration
+### Configuration
 
-If you'd like to alter default behavior, set the following variables in your
-environment:
-
-- `FLASK_DB_URI`
-- `FLASK_LISTEN_HOST`
-- `FLASK_LISTEN_PORT`
+You can configure default behavior by editing `config.py`.
 
