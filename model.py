@@ -17,7 +17,7 @@ class Pin(ApiModel, db.Model):
                        primary_key=True,
                        nullable=False,
                        )
-    url = db.Column(db.String(125))
+    url = db.Column(db.String(125), unique=True)
     desc = db.Column(db.Text(), nullable=True)
 
     def __repr__(self):
